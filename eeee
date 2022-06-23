@@ -1,7 +1,1 @@
-for ass = 0,4 do
-local args = {
-    [1] = -9900000
-}
-
-game:GetService("ReplicatedStorage").SwordShopEvents.DaBabySword:FireServer(unpack(args))
-end
+print("ok give")
