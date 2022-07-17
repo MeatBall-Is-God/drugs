@@ -1,0 +1,99 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("First Gui/PL", "Ocean")
+
+local Tab = Window:NewTab("Guns")
+
+local Section = Tab:NewSection("Guess idiot")
+
+Section:NewButton("Give AK-47", "you get a gun dumbass", function()
+local ohInstance1 = workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+Section:NewButton("Give M9", "you get a gun dumbass", function()
+local ohInstance1 = workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+Section:NewButton("Give M4A1", "you get a gun dumbass", function()
+local ohInstance1 = workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+Section:NewButton("Give Remington 870", "you get a gun dumbass", function()
+local ohInstance1 = workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+local Tab = Window:NewTab("Gun Mods")
+
+local Section = Tab:NewSection("Gun Mods")
+
+Section:NewButton("AutoFire (M9)", "makes your m9 have auto fire", function()
+local GunMod = require(game:GetService("Players").LocalPlayer.Backpack["M9"].GunStates)
+
+GunMod["AutoFire"] = true
+
+local GunMod = require(game:GetService("Players").LocalPlayer.Backpack["Remington 870"].GunStates)
+
+GunMod["AutoFire"] = true
+end)
+
+Section:NewButton("0 FireRate", "idk", function()
+local GunMod = require(game:GetService("Players").LocalPlayer.Backpack["M9"].GunStates)
+
+GunMod["FireRate"] = 0
+
+local GunMod = require(game:GetService("Players").LocalPlayer.Backpack["AK-47"].GunStates)
+
+GunMod["FireRate"] = 0
+
+local GunMod = require(game:GetService("Players").LocalPlayer.Backpack["Remington 870"].GunStates)
+
+GunMod["FireRate"] = 0
+
+local GunMod = require(game:GetService("Players").LocalPlayer.Backpack["M4A1"].GunStates)
+
+GunMod["FireRate"] = 0
+end)
+
+local Tab = Window:NewTab("LocalPlayer")
+
+local Section = Tab:NewSection("LocalPlayer")
+
+Section:NewSlider("WalkSpeed", "Speed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Section:NewSlider("JumpPower", "JumpPower WIP", 500, 50, function(j) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = j
+end)
+
+local Tab = Window:NewTab("Teleports")
+
+local Section = Tab:NewSection("Places")
+
+Section:NewButton("Crim Base", "guess", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-920.821044921875, 95.32717895507812, 2138.347412109375)
+
+end)
+
+Section:NewButton("Gaurds Room", "guess", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(838.4561767578125, 99.98998260498047, 2261.929931640625)
+
+end)
+
+Section:NewButton("Main Hall", "guess", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916.568603515625, 99.98998260498047, 2373.021240234375)
+
+end)
+
+Section:NewButton("Yard", "guess", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(780.7301025390625, 97.99992370605469, 2468.014404296875)
+
+end)
