@@ -1,0 +1,127 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Word Sim", "DarkTheme")
+
+local Tab = Window:NewTab("Booth Changer")
+
+local Section = Tab:NewSection("Booth Changer")
+
+Section:NewTextBox(
+    "Booth Text Changer",
+    "Will Change The Text On The Booth",
+    function(txt)
+        local ohString1 = txt
+        local ohString2 = ""
+        local ohString3 = "DefaultBooth"
+        local ohString4 = ""
+
+        game:GetService("ReplicatedStorage").EditBooth:FireServer(ohString1, ohString2, ohString3, ohString4)
+    end
+)
+
+Section:NewTextBox(
+    "Booth Image Changer",
+    "Will Change The Image On The Booth",
+    function(txt)
+        local ohString1 = ""
+        local ohString2 = txt
+        local ohString3 = "DefaultBooth"
+        local ohString4 = ""
+
+        game:GetService("ReplicatedStorage").EditBooth:FireServer(ohString1, ohString2, ohString3, ohString4)
+    end
+)
+
+Section:NewDropdown(
+    "Booth Changer",
+    "DropdownInf",
+    {
+        "MegaBooth",
+        "DiscoBooth",
+        "HouseBooth",
+        "MexicanBooth",
+        "OceanBooth",
+        "SushiBooth",
+        "DessertBooth",
+        "DonatorBooth",
+        "DefaultBooth",
+        "DoorBooth",
+        "CafeBooth",
+        "CampingBooth",
+        "CarOnCliffBooth",
+        "CarCrashBooth",
+        "IceCreamBooth",
+        "PlantBooth",
+        "PartyBooth",
+        "WesternBooth",
+        "Hotdogbooth"
+    },
+    function(currentOption)
+        local ohString1 = ""
+        local ohString2 = ""
+        local ohString3 = currentOption
+        local ohString4 = ""
+
+        game:GetService("ReplicatedStorage").EditBooth:FireServer(ohString1, ohString2, ohString3, ohString4)
+    end
+)
+
+local Tab = Window:NewTab("Word Giver")
+
+local Section = Tab:NewSection("Give Words")
+
+Section:NewSlider(
+    "Give Words",
+    "Depending On The Slider Thats How Many Words Yo Get",
+    10000,
+    0,
+    function(w)
+        local ohNumber1 = w
+
+        game:GetService("ReplicatedStorage").GiveAmount:FireServer(ohNumber1)
+    end
+)
+
+Section:NewDropdown(
+    "Give Words",
+    "Gives You The Amount Of Words You Chose",
+    {10, 100, 1000, 10000, 100000, 9999999999},
+    function(currentOption)
+        local ohNumber1 = currentOption
+
+        game:GetService("ReplicatedStorage").GiveAmount:FireServer(ohNumber1)
+    end
+)
+
+local Tab = Window:NewTab("Item Giver")
+
+local Section = Tab:NewSection("Item Giver")
+
+Section:NewDropdown(
+    "Item Giver",
+    "Click A Item To Get It",
+    {
+        "Chair",
+        "MakeItRain",
+        "MagicCarpet",
+        "Speed Coil",
+        "Gravity Coil",
+        "BoomBox",
+        "Firework",
+        "Pizza",
+        "Cheeseburger",
+        "GrapplingHook",
+        "DrumKit",
+        "BreakfastGun",
+        "HealthCoil",
+        "PoolNoodle",
+        "OrbitalPiano",
+        "CupcakeLauncher",
+        "Drone"
+    },
+    function(currentOption)
+        local ohString1 = currentOption
+
+        game:GetService("ReplicatedStorage").GiveShopItem:FireServer(ohString1)
+    end
+)
