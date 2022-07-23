@@ -1,0 +1,115 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Prison Life GUI", "GrapeTheme")
+
+local Tab = Window:NewTab("Guns")
+
+local Section = Tab:NewSection("Give yourself guns")
+
+Section:NewButton("M9", "Gives player a M9(gun)", function()
+    local ohInstance1 = workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+
+Section:NewButton("Remington 870", "Gives player a Remington 870(gun)", function()
+    local ohInstance1 = workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+
+Section:NewButton("AK-47", "Gives player a AK-47(gun)", function()
+    local ohInstance1 = workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+
+Section:NewButton("M4A1", "Gives player a M4A1(gun)", function()
+    local ohInstance1 = workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+
+Section:NewButton("Crude Knife", "Gives player a Knife(melee)", function()
+    local ohInstance1 = workspace.Prison_ITEMS.single["Crude Knife"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+
+local Tab = Window:NewTab("Local Player")
+
+local Section = Tab:NewSection("Walkspeed and Jumppower")
+
+
+Section:NewSlider("Walkspeed", "Changes player walkspeed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+
+Section:NewSlider("JumpPower", "Changes player Jumppower", 500, 50, function(j) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = j
+end)
+
+
+Section:NewButton("Reset Walkspeed", "Resets players walkspeed", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16 
+end)
+
+
+Section:NewButton("Reset JumpPower", "Resets players JumpPower", function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50 
+end)
+
+local Tab = Window:NewTab("Gun Mods")
+
+local Section = Tab:NewSection("Gun Mods")
+
+Section:NewButton("M9 Mod(only works while holding gun)", "Makes M9 Full auto ", function()
+    local gun = require(game:GetService("Players").LocalPlayer.Backpack.M9.GunStates)
+
+gun["AutoFire"] = true
+
+gun["FireRate"] = 0
+
+gun["Spread"] = 3
+end)
+
+
+
+local Tab = Window:NewTab("Teleports")
+
+local Section = Tab:NewSection("Teleports")
+
+Section:NewButton("Guard Gun Room", "Take you to Guard Gun room", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(833.9154052734375, 99.98998260498047, 2268.30517578125) 
+end)
+
+Section:NewButton("M9 Mod(only works while holding gun)", "Makes M9 Full auto ", function()
+    print("Clicked")
+end)
+
+local gun = require(game:GetService("Players").LocalPlayer.Backpack.M9.GunStates)
+
+gun["AutoFire"] = true
+
+gun["FireRate"] = 0
+
+gun["Spread"] = 3
+
+local Tab = Window:NewTab("Teleports")
+
+local Section = Tab:NewSection("Teleports")
+
+Section:NewButton("Guard Gun Room", "Take you to Guard Gun room", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(833.9154052734375, 99.98998260498047, 2268.30517578125) 
+end)
+
+
+Section:NewButton("Crim Base", "Take you to Crim Base", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-894.4573364257812, 94.12702941894531, 2138.383544921875) 
+end)
